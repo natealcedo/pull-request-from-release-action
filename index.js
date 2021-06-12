@@ -9,7 +9,7 @@ try {
 }
 
 async function run() {
-  const { sha,repo, owner } = github.context;
+  const { sha,repo: {repo, owner} } = github.context;
 
   // octokit.rest.git.createRef({
   //   owner: 'kaligo',
