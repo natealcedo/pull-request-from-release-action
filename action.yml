@@ -3,3 +3,10 @@ description: 'Greet someone and record the time'
 runs:
   using: 'node12'
   main: 'index.js'
+inputs:
+  token:
+    description: 'Ouath token'
+    required: true
+  base-branch:
+    description: 'Branch to raise pull request against'
+    required: true
