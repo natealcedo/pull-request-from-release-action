@@ -1,0 +1,18 @@
+name: 'Hello World'
+description: 'Action for raising a pull request against a base branch when a release is created'
+runs:
+  using: 'node12'
+  main: 'index.js'
+inputs:
+  token:
+    description: 'Ouath token'
+    required: true
+  base-branch:
+    description: 'Branch to raise pull request against'
+    required: true
+  title-suffix:
+    description: 'The suffix of the pull request title that is appeneded to the release tag'
+    required: true
+  branch-suffix:
+    description: 'The suffix of the branch name that is automatically created when the release is created.'
+    required: true

@@ -1,0 +1,24 @@
+{
+  "name": "pull-request-from-release-action",
+  "version": "1.0.0",
+  "description": "Action for raising a pull request against a base branch when a release is created",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natealcedo/pull-request-from-release-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natealcedo/pull-request-from-release-action/issues"
+  },
+  "homepage": "https://github.com/natealcedo/pull-request-from-release-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/github": "^5.0.0"
+  }
+}
