@@ -2,8 +2,6 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  // const baseBranch = core.getInput('base-branch');
-  // // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
 } catch (error) {
@@ -11,8 +9,7 @@ try {
 }
 
 async function run() {
-  const { sha } = github.context;
-  github.context.sha
+  const { sha,repo, owner } = github.context;
 
   // octokit.rest.git.createRef({
   //   owner: 'kaligo',
@@ -22,10 +19,7 @@ async function run() {
   // })
 
   const context = github.context.ref;
-  console.log(context)
-  console.log('hello world')
+  console.log(sha, repo, owner)
 }
 
 run();
-
-console.log('hello world')
