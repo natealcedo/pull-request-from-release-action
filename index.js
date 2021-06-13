@@ -6,23 +6,22 @@ async function run() {
   const baseBranch = core.getInput('base-branch');
   const titleSuffix = core.getInput('title-suffix');
   const branchSuffix = core.getInput('branch-suffix');
+  const releasePrefix = core.getInput('release-prefix');
   const {payload: {repository, release}, sha} = github.context;
   const { body, tag_name } = release;
 
-  /**
-   * Since there is not way to know which branch we want to merge this release back into, we break the tag name and check if the base branch includes this tag
-   * If the tag name is not in the base branch, we know this release is not for the associated base-branch
+   /**
+   * Check if the release matches it's release-prefix tag
+   * The constraint here is that the base branch should include the
+   * release prefix
    */
-  const partner = (tag_name.split('-')[0]).toLowerCase();
-
-  if (!(baseBranch.toLowerCase()).includes(partner)) {
+  if (!(baseBranch.toLowerCase()).includes(releasePrefix)) {
     process.exit(0);
   }
 
   /**
-   * 1. Create branch from tag name
-   * 2. Create branch
-   * 3. Create
+   * 1. Create branch from release tag
+   * 2. Create pull request from the tag name and match it with base branch
    */
 
 

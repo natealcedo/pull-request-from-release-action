@@ -5,14 +5,17 @@ runs:
   main: 'index.js'
 inputs:
   token:
-    description: 'Ouath token'
+    description: 'Oauth token'
     required: true
   base-branch:
     description: 'Branch to raise pull request against'
     required: true
   title-suffix:
-    description: 'The suffix of the pull request title that is appeneded to the release tag'
+    description: 'The suffix of the pull request title that is appeneded to the pull request title'
     required: true
   branch-suffix:
     description: 'The suffix of the branch name that is automatically created when the release is created.'
+    required: true
+  release-prefix:
+    description: 'The prefix of the release name that is used to match a release with a base branch since a release can have many tags. This is for the use case of a multi-tenant repository'
     required: true

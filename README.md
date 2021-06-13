@@ -29,6 +29,7 @@ jobs:
            base-branch: 'branch-uat'
            title-suffix: 'Release UAT'
            branch-suffix: '-UAT'
+           release-prefix: 'release'
 ```
 
 # License
