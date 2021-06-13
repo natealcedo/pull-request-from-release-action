@@ -6,7 +6,8 @@ async function run() {
   const baseBranch = core.getInput('base-branch');
 
   // Get repo information from the context
-  const { sha, repo: {repo, owner}, tag_name, sha} = github.context;
+  // const { sha, repo: {repo, owner}, tag_name, sha} = github.context;
+  console.log(github.context);
   const octokit = github.getOctokit(token);
 
   /**
@@ -15,32 +16,34 @@ async function run() {
    * 3. Get name of previous release with the associated tag
    * 3. Create pull request
    */
-  const release = await octokit.rest.repos.getReleaseByTag({
-    owner,
-    repo,
-    tag: tag_name
-  })
+  // const release = await octokit.rest.repos.getReleaseByTag({
+  //   owner,
+  //   repo,
+  //   tag: tag_name
+  // })
 
-  const prBody = release.data.body;
+  // const prBody = release.data.body;
 
-  const branchName = `refs/heads/${tag_name}-uat`;
-  const title = `${tag_name} UAT release`;
+  // const branchName = `refs/heads/${tag_name}-uat`;
+  // const title = `${tag_name} UAT release`;
 
 
-  await octokit.rest.git.createRef({
-    owner,
-    repo,
-    sha,
-    ref: branchName
-  });
+  // await octokit.rest.git.createRef({
+  //   owner,
+  //   repo,
+  //   sha,
+  //   ref: branchName
+  // });
 
-  await octokit.rest.pulls.create({
-    owner,
-    repo,
-    title,
-    base: baseBranch,
-    body: prBody
-  })
+  // await octokit.rest.pulls.create({
+  //   owner,
+  //   repo,
+  //   title,
+  //   base: baseBranch,
+  //   body: prBody
+  // })
+
+  // console.log('done');
 }
 
 run();
