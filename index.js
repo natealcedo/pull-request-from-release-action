@@ -12,10 +12,9 @@ async function run() {
 
    /**
    * Check if the release matches it's release-prefix tag
-   * The constraint here is that the base branch should include the
-   * release prefix
+   * If it does, that means this release is for the release prefix tag
    */
-  if (!(baseBranch.toLowerCase()).includes(releasePrefix)) {
+  if (!(tag_name).includes(releasePrefix)) {
     process.exit(0);
   }
 

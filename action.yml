@@ -1,4 +1,4 @@
-name: 'Hello World'
+name: 'Raise pull request from release to a branch'
 description: 'Action for raising a pull request against a base branch when a release is created'
 runs:
   using: 'node12'
@@ -17,5 +17,5 @@ inputs:
     description: 'The suffix of the branch name that is automatically created when the release is created.'
     required: true
   release-prefix:
-    description: 'The prefix of the release name that is used to match a release with a base branch since a release can have many tags. This is for the use case of a multi-tenant repository'
+    description: 'The prefix of the release name that is used to match a release with a release name since release can have many tags. This is for the use case of a multi-tenant repository'
     required: true
