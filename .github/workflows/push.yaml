@@ -9,4 +9,4 @@ jobs:
       -  uses: ./
          with:
            token: ${{ secrets.TOKEN }}
-           base-branch: 'master'
+           base-branch: 'vma-uat'
