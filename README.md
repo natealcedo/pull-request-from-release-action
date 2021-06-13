@@ -23,7 +23,7 @@ jobs:
     steps:
       -  uses: actions/checkout@v2
       -  uses: actions/setup-node@v1
-      -  uses: natealcedo/pull-request-from-release@v1
+      -  uses: natealcedo/pull-request-from-release-action@v1
          with:
            token: ${{ secrets.TOKEN }}
            base-branch: 'branch-uat'
