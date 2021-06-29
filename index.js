@@ -25,7 +25,7 @@ async function run() {
 
 
   const octokit = github.getOctokit(token);
-  const branchName = `refs/heads/${tag_name}${branchSuffix}`;
+  const branchName = `refs/heads/_${tag_name}${branchSuffix}`;
   const title = `${tag_name} ${titleSuffix}`;
   const owner = repository.owner.login;
   const repo = repository.name;
