@@ -4,6 +4,7 @@ const github = require('@actions/github');
 async function run() {
   const token = core.getInput('token');
   const baseBranch = core.getInput('base-branch');
+  const baseBranches = core.getMultilineInput('base-branches');
   const titleSuffix = core.getInput('title-suffix');
   const branchSuffix = core.getInput('branch-suffix');
   const releasePrefix = core.getInput('release-prefix');
@@ -30,6 +31,12 @@ async function run() {
   const owner = repository.owner.login;
   const repo = repository.name;
 
+  // Remove duplicate branches
+  const branches = Array.from(new Set([
+    baseBranch,
+    ...baseBranches
+  ]));
+
   await octokit.rest.git.createRef({
     owner,
     repo,
@@ -37,14 +44,17 @@ async function run() {
     ref: branchName
   });
 
-  await octokit.rest.pulls.create({
-    owner,
-    repo,
-    title,
-    base: baseBranch,
-    body,
-    head: branchName
-  })
+  for (const branch of branches) {
+    await octokit.rest.pulls.create({
+      owner,
+      repo,
+      title,
+      base: branch,
+      body,
+      head: branchName
+    })
+  }
+
 }
 
 run();
