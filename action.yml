@@ -7,8 +7,8 @@ inputs:
   token:
     description: 'Oauth token'
     required: true
-  base-branch:
-    description: 'Branch to raise pull request against'
+  base-branches:
+    description: 'Branches to raise pull request against'
     required: true
   title-suffix:
     description: 'The suffix of the pull request title that is appeneded to the pull request title'
